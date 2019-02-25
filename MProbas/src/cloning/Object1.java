@@ -159,7 +159,6 @@ public class Object1 {
 		
 		
 		
-		
 		System.out.println("\n");
 		System.out.println("\n\nMetodo de clonacion: clone2 ....\n");
 		
@@ -182,7 +181,5 @@ public class Object1 {
 		
 		System.out.println("o1.getObj2().getStr1() == o2.getStr1(): "+(o1.getObj2().getStr1() == o2.getStr1())+"  ---->  este chama a atencion, pero os String son inmutables ==> o obxeto orixinal e a clonacion son o mesmo obxeto");
 		System.out.println("o1.getObj2().getLong1() == o2.getLong1()): "+(o1.getObj2().getLong1() == o2.getLong1()));
-		
-		
 	}
 }
