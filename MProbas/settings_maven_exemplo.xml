@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    
+  <localRepository>/home/unoh/.m2/repository</localRepository>
+
+
+
+  <profiles>
+    <profile>
+      <id>default</id>
+
+      <!--activation>
+        <jdk>1.4</jdk>
+      </activation-->
+
+      <repositories>
+        <repository>
+          <id>repo1_maven_org</id>
+          <name>Repository maven</name>
+          <url>https://repo1.maven.org/maven2</url>
+          <layout>default</layout>
+          <snapshotPolicy>always</snapshotPolicy>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+
+  <activeProfiles>
+    <activeProfile>default</activeProfile>
+    <!--activeProfile>anotherAlwaysActiveProfile</activeProfile-->
+  </activeProfiles>
+</settings>
