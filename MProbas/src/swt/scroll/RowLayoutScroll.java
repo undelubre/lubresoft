@@ -28,20 +28,20 @@ public class RowLayoutScroll {
     Image image2;
     Image image3;
 
-	
-	
-	public RowLayoutScroll(){
-	    Display display = new Display();
-	    image1 = display.getSystemImage(SWT.ICON_WORKING);
-	    image2 = display.getSystemImage(SWT.ICON_QUESTION);
-	    image3 = display.getSystemImage(SWT.ICON_ERROR);
 
-	    Shell shell = new Shell(display);
+
+	public RowLayoutScroll(){
+	    final Display display = new Display();
+	    this.image1 = display.getSystemImage(SWT.ICON_WORKING);
+	    this.image2 = display.getSystemImage(SWT.ICON_QUESTION);
+	    this.image3 = display.getSystemImage(SWT.ICON_ERROR);
+
+	    final Shell shell = new Shell(display);
 	    shell.setLayout(new FillLayout());
 
 	    init(display, shell);
 
-	    
+
 	    shell.open();
 	    while (!shell.isDisposed()) {
 	      if (!display.readAndDispatch()) {
@@ -49,51 +49,55 @@ public class RowLayoutScroll {
 	      }
 	    }
 	    display.dispose();
-	    
+
 	}
-	
-	public void init(Display display, Shell shell){
-		
+
+	public void init(final Display display, final Shell shell){
+
 	    final ScrolledComposite scrollComposite = new ScrolledComposite(shell,
 		        SWT.V_SCROLL | SWT.BORDER);
 
 		    final Composite parent = new Composite(scrollComposite, SWT.NONE);
 		    for (int i = 0; i <= 50; i++) {
-		      Label label = new Label(parent, SWT.NONE);
-		      if (i % 3 == 0)
-		        label.setImage(image1);
-		      if (i % 3 == 1)
-		        label.setImage(image2);
-		      if (i % 3 == 2)
-		        label.setImage(image3);
+		      final Label label = new Label(parent, SWT.NONE);
+		      if ((i % 3) == 0) {
+                label.setImage(this.image1);
+            }
+		      if ((i % 3) == 1) {
+                label.setImage(this.image2);
+            }
+		      if ((i % 3) == 2) {
+                label.setImage(this.image3);
+            }
 		    }
-		    RowLayout layout = new RowLayout(SWT.HORIZONTAL);
+		    final RowLayout layout = new RowLayout(SWT.HORIZONTAL);
 		    layout.wrap = true;
 		    parent.setLayout(layout);
 
 		    scrollComposite.setContent(parent);
 		    scrollComposite.setExpandVertical(true);
 		    scrollComposite.setExpandHorizontal(true);
-		    
-		    
+
+
 		    scrollComposite.addControlListener(new ControlAdapter() {
-		      public void controlResized(ControlEvent e) {
-		        Rectangle r = scrollComposite.getClientArea();
+		      @Override
+            public void controlResized(final ControlEvent e) {
+		        final Rectangle r = scrollComposite.getClientArea();
 		        scrollComposite.setMinSize(parent.computeSize(r.width,
 		            SWT.DEFAULT));
 		      }
 		    });
-		    Button b = new Button(shell, SWT.NONE);
+		    final Button b = new Button(shell, SWT.NONE);
 		    b.addListener(SWT.Selection, new Listener() {
-				
-				@Override
-				public void handleEvent(Event event) {
+
+            // @Override
+				public void handleEvent(final Event event) {
 					// TODO Auto-generated method stub
-				      Label label = new Label(parent, SWT.NONE);
-				  	    Image image1 = event.display.getSystemImage(SWT.ICON_WORKING);
+				      final Label label = new Label(parent, SWT.NONE);
+				  	    final Image image1 = event.display.getSystemImage(SWT.ICON_WORKING);
 				        label.setImage(image1);
 
-				        Rectangle r = scrollComposite.getClientArea();
+				        final Rectangle r = scrollComposite.getClientArea();
 				        scrollComposite.setMinSize(parent.computeSize(r.width,
 				        		SWT.DEFAULT));
 				        parent.layout();
@@ -102,13 +106,13 @@ public class RowLayoutScroll {
 				        scrollComposite.redraw();
 				}
 			});
-		
-		
-	}
-	
 
-	  public static void main(String[] args) {
-	    
+
+	}
+
+
+	  public static void main(final String[] args) {
+
 new RowLayoutScroll();
 	  }
 	}

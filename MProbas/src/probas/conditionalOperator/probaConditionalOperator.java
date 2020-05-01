@@ -69,6 +69,14 @@ public class probaConditionalOperator {
 		
 		System.out.println("result6= "+result6);
 
+		System.out.println("-----------------------------------");
+		
+		String i7 = null;
+		
+		String result7 = true ? i7 : "";
+		
+		System.out.println("result7= "+result7);
+
 		System.out.println("-------------- FIN ----------------");
 		
 	}
