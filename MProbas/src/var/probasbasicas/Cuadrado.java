@@ -1,4 +1,4 @@
-package ProbasBasicas;
+package var.probasbasicas;
 
 public class Cuadrado {
 	
